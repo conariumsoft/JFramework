@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JFramework.Interface", "JFramework.Interface\JFramework.Interface.shproj", "{A0CDBD0E-3A41-42B7-9425-A838BC2C7383}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGame", "TestGame\TestGame.csproj", "{B1EEF1A9-B468-46FD-84B9-1D659DEC1022}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JFramework.Common", "JFramework.Common\JFramework.Common.shproj", "{EA3FCE28-C8D9-4DBF-A712-B7B8DA93A7D8}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JFramework.Networking", "JFramework.Networking\JFramework.Networking.shproj", "{EF65C61F-04ED-4479-B237-E11FAE92953E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JFramework.Graphics", "JFramework.Graphics\JFramework.Graphics.shproj", "{07C8058B-0AA4-4FFA-8691-75B4628F545E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JFramework.Console", "JFramework.Console\JFramework.Console.shproj", "{58658F56-B76D-41F2-A1BC-C25862970D33}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		JFramework.Graphics\JFramework.Graphics.projitems*{07c8058b-0aa4-4ffa-8691-75b4628f545e}*SharedItemsImports = 13
+		JFramework.Console\JFramework.Console.projitems*{58658f56-b76d-41f2-a1bc-c25862970d33}*SharedItemsImports = 13
+		JFramework.Interface\JUI.projitems*{a0cdbd0e-3a41-42b7-9425-a838bc2c7383}*SharedItemsImports = 13
+		JFramework.Common\Common.projitems*{b1eef1a9-b468-46fd-84b9-1d659dec1022}*SharedItemsImports = 5
+		JFramework.Console\JFramework.Console.projitems*{b1eef1a9-b468-46fd-84b9-1d659dec1022}*SharedItemsImports = 5
+		JFramework.Graphics\JFramework.Graphics.projitems*{b1eef1a9-b468-46fd-84b9-1d659dec1022}*SharedItemsImports = 5
+		JFramework.Interface\JUI.projitems*{b1eef1a9-b468-46fd-84b9-1d659dec1022}*SharedItemsImports = 5
+		JFramework.Networking\JFramework.Networking.projitems*{b1eef1a9-b468-46fd-84b9-1d659dec1022}*SharedItemsImports = 5
+		JFramework.Common\Common.projitems*{ea3fce28-c8d9-4dbf-a712-b7b8da93a7d8}*SharedItemsImports = 13
+		JFramework.Networking\JFramework.Networking.projitems*{ef65c61f-04ed-4479-b237-e11fae92953e}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1EEF1A9-B468-46FD-84B9-1D659DEC1022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EEF1A9-B468-46FD-84B9-1D659DEC1022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EEF1A9-B468-46FD-84B9-1D659DEC1022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EEF1A9-B468-46FD-84B9-1D659DEC1022}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD388CC5-EA9E-4BA0-A549-B12E1439567F}
+	EndGlobalSection
+EndGlobal

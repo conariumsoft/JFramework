@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6efba8a9-a407-4029-bdd0-651d22a87386</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>JFramework.Common</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssetManagement\TextureReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetManagement\TextureManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ByteUtilities\Compressor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ByteUtilities\TypeSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Debugging\FrameCounter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Compass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ByteExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\LINQExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\MathematicsExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\RandomExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\LogFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\OutputLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scripting\LuaEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scripting\LuaExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scripting\Script.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rotation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\MonoGameExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generic\CircularArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generic\RepeatingIntervalTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generic\ThreadSafeValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generic\UniqueQueue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\CrashReport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Noise\OctaveNoise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Noise\PerlinNoise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Noise\SimplexNoise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS.cs" />
+  </ItemGroup>
+</Project>
