@@ -12,13 +12,14 @@
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ImportUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\FocusListNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\OutlineRectBorderNode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Nodes\ButtonNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\INode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\InputFormNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\LineNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\ListNode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Nodes\MouseListenerNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\ButtonInputListenerNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\NineSliceNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\RectNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\VerticalSliderNode.cs" />

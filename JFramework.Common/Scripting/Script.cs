@@ -26,7 +26,7 @@ end";
 
 
 		public const string EnhancedPrintFunction = @"
-_G.oldprint = print
+--[[_G.oldprint = print
 function _G.print(...)
 	local data = {...}
 	for i, v in pairs(data) do
@@ -34,7 +34,12 @@ function _G.print(...)
 			print(v)
 		end
 	end
+end]]
+import('System', 'System.Diagnostics');
+function _G.debug(...)
+	Debug.WriteLine(...);
 end
+
 ";
 
 		public const string ListIteratorFunction = @"

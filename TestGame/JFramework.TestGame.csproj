@@ -40,6 +40,9 @@
     <None Update="scripts\menu.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="scripts\prefabs.lua">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="..\JFramework.Console\JFramework.Console.projitems" Label="Shared" />
   <Import Project="..\JFramework.Graphics\JFramework.Graphics.projitems" Label="Shared" />

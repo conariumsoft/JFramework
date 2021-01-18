@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using NLua;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace JFramework.Interface.Nodes
@@ -23,12 +24,10 @@ namespace JFramework.Interface.Nodes
 
 		public override void Draw(GraphicsEngine GFX)
 		{
-			if (Parent is IRectNode rect)
-			{
-				GFX.OutlineRect(Color, rect.AbsolutePosition, rect.AbsoluteSize, Thickness);
-				base.Draw(GFX);
-			}
 			
+			GFX.OutlineRect(Color, Parent.AbsolutePosition, Parent.AbsoluteSize, Thickness);	
+			
+			base.Draw(GFX);
 		}
 		public override void Update(GameTime gt)
 		{

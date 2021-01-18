@@ -10,7 +10,7 @@ namespace JFramework.Interface.Prefabs
 	public class DraggableRect : INode
 	{
 		public RectNode Rectangle { get; set; }
-		public MouseListenerNode MouseListener { get; set; }
+		public ButtonInputListenerNode MouseListener { get; set; }
 
 		public List<INode> Children => Rectangle.Children;
 
@@ -29,7 +29,7 @@ namespace JFramework.Interface.Prefabs
 
 		public DraggableRect()
 		{
-			MouseListener = new MouseListenerNode();
+			MouseListener = new ButtonInputListenerNode();
 			MouseListener.Parent = this;
 		}
 

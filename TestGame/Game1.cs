@@ -1,24 +1,25 @@
 ﻿using JFramework.Common.Scripting;
 using JFramework.Graphics;
+using JFramework.Interface;
 using JFramework.Interface.Nodes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
+using System.IO;
 
 namespace JFramework.TestGame
 {
-
+	public static class FontManager
+	{
+		public static SpriteFont Arial { get; set; }
+	}
 
     public class Game1 : Game
     {
-
-		
-
 		Script menuScript;
 
 		UIScene Scene;
-
 
 		public GraphicsEngine GFX { get; private set; }
         public GraphicsDeviceManager GraphicsDeviceManager { get; private set; }
@@ -31,8 +32,10 @@ namespace JFramework.TestGame
 			Window.AllowUserResizing = true;
 			Window.AllowAltF4 = true;
 
+			
 			Script.IncludeDefault(Snippets.ScriptHeader);
 			Script.IncludeDefault(Snippets.LogToFileFunction);
+			Script.IncludeDefault("grab('JFramework.TestGame')");
 
 			GraphicsDeviceManager = new GraphicsDeviceManager(this)
 			{
@@ -44,13 +47,6 @@ namespace JFramework.TestGame
 			};
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-			
-			//menuScript = Script.Load("menu.lua");
-			
-			//Debug.WriteLine(retval[0]);
-			//Scene = (UIScene)retval[0];
-			//Debug.WriteLine(Scene);
 
 		}
 
@@ -67,26 +63,32 @@ namespace JFramework.TestGame
 			};
 			GFX.Initialize();
 
-			menuScript = new Script();
-			Scene = menuScript.State.DoFile("scripts/menu.lua")[0] as UIScene;
-			//Scene = new UIScene();
+			
 		}
 
-        protected override void LoadContent() {}
+        protected override void LoadContent()
+		{
+			
+			FontManager.Arial = Content.Load<SpriteFont>("Default");
+
+			menuScript = new Script();
+			Scene = menuScript.State.DoFile("scripts/menu.lua")[0] as UIScene;
+		}
 
         protected override void Update(GameTime gameTime)
         {
-			Scene.Update(gameTime);
+			Scene?.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-			//GraphicsDevice.Clear(Color.CornflowerBlue);
-			GFX.Clear(Color.Gray);
-			// TODO: Add your drawing code here
+
+			GFX.Clear(Color.DarkBlue);
+
+
 			GFX.Begin();
-			Scene.Draw(GFX);
+			Scene?.Draw(GFX);
 			GFX.End();
             base.Draw(gameTime);
         }

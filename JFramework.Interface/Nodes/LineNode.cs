@@ -47,21 +47,9 @@ namespace JFramework.Interface.Nodes
 
 		public UICoords PointB { get; set; }
 
-		private Vector2 GetAbsolutePointA()
-		{
-			if (Parent is IRectNode rect)
-				return rect.AbsolutePosition + PointA.Pixels + (rect.AbsoluteSize * PointA.Scale);
-			return Vector2.Zero;
-		}
-		private Vector2 GetAbsolutePointB()
-		{
-			if (Parent is IRectNode rect)
-				return rect.AbsolutePosition + PointB.Pixels + (rect.AbsoluteSize * PointB.Scale);
-			return Vector2.Zero;
-		}
 
-		public Vector2 AbsolutePointA => GetAbsolutePointA();
-		public Vector2 AbsolutePointB => GetAbsolutePointB();
+		public Vector2 AbsolutePointA => Parent.AbsolutePosition + PointA.Pixels + (Parent.AbsoluteSize * PointA.Scale);
+		public Vector2 AbsolutePointB => Parent.AbsolutePosition + PointB.Pixels + (Parent.AbsoluteSize * PointB.Scale);
 
 		public override void Draw(GraphicsEngine GFX)
 		{

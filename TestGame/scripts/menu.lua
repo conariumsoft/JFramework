@@ -6,14 +6,44 @@ local scene = UIScene({
 
 });
 
-local BG = RectNode({
-	Size = UICoords.FromScale(0.25, 0.3),
-	Position = UICoords.FromPixels(10, 10),
-	Color = Color(1, 0.5, 0),
-	Parent = scene,
+local prefabs = require("scripts.prefabs");
 
+
+local button = prefabs.new_button("Hello world!", function(ev, inputtype)
+	debug("IT WORKS!!!");
+end)
+button.Parent = scene;
+
+local BG = RectNode({
+	Size = UICoords.FromScale(0.25, 0.4),
+	Position = UICoords.FromPixels(10, 10),
+	Color = Color(0.1, 0.1, 0.1),
+	Parent = scene,
 });
 
-local border = Bo
+debug("WTF???")
+local border = OutlineRectBorderNode({
+	Thickness = 2,
+	Color = Color(1, 1, 0),
+	Parent = BG,
+});
+
+local textnode = TextNode({
+	--Font = FontManager.Arial,
+	Parent = BG,
+	TextColor = Color(1,1,1),
+	Text = "Testing 123",
+})
+
+local clickListener = InputListenerNode {
+
+}
+
+scene.FocusList = FocusList({
+
+	BG,
+	border,
+	textnode
+})
 
 return scene;

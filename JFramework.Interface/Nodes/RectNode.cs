@@ -9,7 +9,7 @@ using System.Text;
 
 namespace JFramework.Interface.Nodes
 {
-	public class RectNode : BaseNode
+	public class RectNode : BaseNode, IRectNode
 	{
 		public Color Color { get; set; }
 		

@@ -102,7 +102,7 @@ a:hover {border-bottom: 0;}
         public string GenerateHTMLReport()
         {
             string crashReportHTML =
-@$"
+$@"
 <!DOCTYPE html>
 <html>
 <head>

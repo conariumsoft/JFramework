@@ -6,25 +6,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NLua;
+using System.Xml.Serialization;
 
 namespace JFramework.Interface.Nodes
 {
 	public class RootNodeControls
 	{
 
+		[XmlIgnore]
 		public virtual List<INode> Children { get; protected set; }
+
+		
 
 		public virtual void Draw(GraphicsEngine GFX)
 		{
 			foreach (INode child in Children)
-				if (!child.Hidden)
 					child.Draw(GFX);
 		}
 
 		public virtual void Update(GameTime gt)
 		{
 			foreach (INode child in Children)
-				if (!child.ThinkingDisabled)
 					child.Update(gt);
 		}
 
@@ -36,6 +38,18 @@ namespace JFramework.Interface.Nodes
 
 	public class BaseNode : RootNodeControls, INode
 	{
+
+		public override void Draw(GraphicsEngine gfx)
+		{
+
+			gfx.Circle(new Color(0, 0, 1.0f), AbsolutePosition, 2);
+			gfx.Circle(new Color(1, 1, 0.0f), AbsolutePosition + AbsoluteSize, 2);
+			gfx.Circle(new Color(0, 1, 0.0f), AbsolutePosition + (AnchorPoint * AbsoluteSize), 2);
+			//gfx.Text($"abs pos{this.AbsolutePosition} size{this.AbsoluteSize}", AbsolutePosition);
+			//gfx.Text($"{this.Children.Count} children", AbsolutePosition + new Vector2(0, 12));
+			base.Draw(gfx);
+		}
+
 		// Lua Constructor Syntax Sugar
 		public BaseNode(LuaTable properties) : this() => this.InitFromLuaPropertyTable(Script.CurrentScript.State, properties);
 		public SimpleLuaEvent OnParentChanged = new SimpleLuaEvent();
@@ -64,31 +78,14 @@ namespace JFramework.Interface.Nodes
 		public Vector2 AnchorPoint { get; set; }
 
 
-		private Vector2 GetAbsoluteSize()
-		{
-			if (Parent is IRectNode rect)
-			{
-				return new Vector2(
-					Size.Pixels.X + (rect.AbsoluteSize.X * Size.Scale.X),
-					Size.Pixels.Y + (rect.AbsoluteSize.Y * Size.Scale.Y)
-				);
-			}
-			return Size.Pixels;
-		}
-		private Vector2 GetAbsolutePosition()
-		{
-			if (Parent is IRectNode rect)
-			{
-				return new Vector2(
-					rect.AbsolutePosition.X + Position.Pixels.X + (rect.AbsoluteSize.X * Position.Scale.X) - (AnchorPoint.X * AbsoluteSize.X),
-					rect.AbsolutePosition.Y + Position.Pixels.Y + (rect.AbsoluteSize.Y * Position.Scale.Y) - (AnchorPoint.Y * AbsoluteSize.Y)
-				);
-			}
-			return Position.Pixels;
-		}
-
-		public virtual Vector2 AbsoluteSize => GetAbsoluteSize();
-		public virtual Vector2 AbsolutePosition => GetAbsolutePosition();
+		public virtual Vector2 AbsoluteSize => new Vector2(
+			Size.Pixels.X + (Parent.AbsoluteSize.X * Size.Scale.X),
+			Size.Pixels.Y + (Parent.AbsoluteSize.Y * Size.Scale.Y)
+		);
+		public virtual Vector2 AbsolutePosition => new Vector2(
+			Parent.AbsolutePosition.X + Position.Pixels.X + (Parent.AbsoluteSize.X* Position.Scale.X) - (AnchorPoint.X* AbsoluteSize.X),
+			Parent.AbsolutePosition.Y + Position.Pixels.Y + (Parent.AbsoluteSize.Y* Position.Scale.Y) - (AnchorPoint.Y* AbsoluteSize.Y)
+		);
 
 		public UICoords Position { get; set; }
 		public UICoords Size { get; set; }
@@ -97,13 +94,14 @@ namespace JFramework.Interface.Nodes
 
 	public interface IRectNode
 	{
-		Vector2 AnchorPoint { get; }
-		Vector2 AbsoluteSize { get; }
-		Vector2 AbsolutePosition { get; }
+		
 	}
 
 	public interface INode
     {
+		Vector2 AnchorPoint { get; }
+		Vector2 AbsoluteSize { get; }
+		Vector2 AbsolutePosition { get; }
 		INode FindFirstChildWithName(string name);
 		List<INode> FindChildrenWithName(string name);
 
