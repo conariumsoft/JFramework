@@ -14,12 +14,17 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AssetManagement\TextureReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AssetManagement\TextureManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ByteUtilities\Compressor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ByteUtilities\TypeSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ByteCompression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TypeSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Debugging\FrameCounter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\BaseSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\ECSWorld.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\IComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Compass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ByteExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ContainerExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\LINQExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MathematicsExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\RandomExtensions.cs" />
@@ -40,5 +45,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Noise\PerlinNoise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Noise\SimplexNoise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Arc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Circle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Polygon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Polyline.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Shape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\ShapeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UICoords.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\" />
   </ItemGroup>
 </Project>

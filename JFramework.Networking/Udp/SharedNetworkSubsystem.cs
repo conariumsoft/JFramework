@@ -1,37 +1,20 @@
-﻿using CaveGame.Core.Generic;
-using JFramework.Common.Extensions;
+﻿using JFramework.Common.Extensions;
+using JFramework.Common.Generic;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace JFramework.Networking.Udp
 {
 
-	public enum PacketType
-	{
-		Varg
-	}
-
-	public class Packet2 : BytePacket<PacketType>
-	{
-		public Packet2() : base(PacketType.Varg)
-		{
-
-		}
-	}
-
    public class SharedNetworkSubsystem<T> where T: Enum
    {
         public const int NAP_TIME_MILLISECONDS = 1;
         public const int SIO_UDP_CONNRESET = -1744830452;
-
 
         protected ThreadSafeValue<bool> running { get; set; }
         protected ConcurrentQueue<NetworkMessage<T>> IncomingMessages { get; set; }

@@ -12,8 +12,23 @@
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\OutlineRectBorderNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\ButtonNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\INode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\InputFormNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\LineNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\ListNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\MouseListenerNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\NineSliceNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\RectNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\VerticalSliderNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\TableNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\TextNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Nodes\TooltipNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nodes\UIScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Prefabs\DraggableRect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Prefabs\example.lua" />
   </ItemGroup>
 </Project>

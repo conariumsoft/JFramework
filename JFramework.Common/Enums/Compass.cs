@@ -2,31 +2,37 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace JFramework.Common.Enums
+namespace JFramework.Common
 {
+	public enum RectFace
+	{
+		Top,
+		Bottom,
+		Left,
+		Right
+	}
 	public enum Direction
 	{
-		Top,
-		Bottom,
+		Up,
+		Down,
 		Left,
 		Right
 	}
-	public enum TileSurface
+
+	public enum Diagonal
 	{
-		Top,
-		Bottom,
-		Left,
-		Right
+		Northwest,
+		Southwest,
+		Northeast,
+		Southeast
 	}
-	public enum Compass
+
+
+	public enum Cardinal
 	{
-		North = 0,
-		Northeast = 45,
-		East = 90,
-		Southeast = 135,
-		South = 180,
-		Southwest = 225,
-		West = 270,
-		Northwest = 315
+		North,
+		South,
+		East,
+		West
 	}
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CaveGame.Core.Noise
+namespace JFramework.Common.Noise
 {
     public class OctaveNoise
     {
@@ -12,7 +12,6 @@ namespace CaveGame.Core.Noise
         /// </summary>
         /// 
 
-        public static DoubleRange Interval = new DoubleRange(-0.5, 0.5);
         private readonly PerlinNoise[] m_Perlin;
 
         /// <summary>

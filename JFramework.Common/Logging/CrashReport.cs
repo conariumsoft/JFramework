@@ -72,7 +72,9 @@ a:hover {border-bottom: 0;}
 			wr("CLRVersion",        Environment.Version);
 			wr("WorkingSet",        Environment.WorkingSet);
 			wr("ProcessorCount",    Environment.ProcessorCount);
+#if DESKTOP
 			wr("SystemUptime",      Environment.TickCount64);
+#endif
 			wr("UserName",          Environment.UserName);
 
             return text;

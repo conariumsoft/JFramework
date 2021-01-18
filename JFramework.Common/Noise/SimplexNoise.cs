@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CaveGame.Core.Noise
+namespace JFramework.Common.Noise
 {
     public class SimplexNoise
     {
 
-        public static FloatRange Interval = new FloatRange(-1, 1);
         /// <summary>
         /// 1D simplex noise (returns value in [-1, 1] range)
         /// </summary>

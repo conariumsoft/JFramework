@@ -3,73 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JFramework.Graphics
+namespace JFramework.Common.Shapes
 {
 	using Polygon = List<Vector2>;
-
-	public class Shape
-	{
-		public List<Vector2> Vertices { get; protected set; }
-
-
-
-		public Shape()
-		{
-			Vertices = new List<Vector2>();
-		}
-	}
-
-	public class Arc : Shape
-	{
-		public Arc(float radius, int sides, float startingAngle, float radians) : base()
-		{
-
-			Vertices.AddRange(new Circle(radius, sides).Vertices);
-			Vertices.RemoveAt(Vertices.Count - 1);
-
-			double curAngle = 0.0;
-			double anglePerSide = MathHelper.TwoPi / sides;
-
-			while ((curAngle + (anglePerSide / 2.0)) < startingAngle)
-			{
-				curAngle += anglePerSide;
-
-				Vertices.Add(Vertices[0]);
-				Vertices.RemoveAt(0);
-			}
-
-			Vertices.Add(Vertices[0]);
-			int sidesInArc = (int)((radians / anglePerSide) + 0.5);
-
-			Vertices.RemoveRange(sidesInArc + 1, Vertices.Count - sidesInArc - 1);
-		}
-
-		public void Draw()
-		{
-
-		}
-	}
-
-	public class Circle : Shape
-	{
-
-		public Circle(double radius, int sides) : base()
-		{
-			const double max = 2.0 * Math.PI;
-
-			double step = max / sides;
-
-			for (double theta = 0.0; theta < max; theta += step)
-			{
-				Vertices.Add(new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta))));
-			}
-
-			Vertices.Add(new Vector2((float)(radius * Math.Cos(0)), (float)(radius * Math.Sin(0))));
-		}
-	}
-
-
-	public static class ShapeCache
+	public static class ShapeBuilder
 	{
 		private static Dictionary<string, Polygon> circleCache = new Dictionary<string, Polygon>();
 

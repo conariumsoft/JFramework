@@ -6,6 +6,6 @@ namespace JFramework.Console
 {
 	public class Command
 	{
-		public delegate void CommandHandler
+		//public delegate void CommandHandler
 	}
 }

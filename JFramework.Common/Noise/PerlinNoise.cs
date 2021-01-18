@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CaveGame.Core.Noise
+namespace JFramework.Common.Noise
 {
 
 	class PerlinNoise
@@ -53,7 +53,6 @@ namespace CaveGame.Core.Noise
             InitGradients();
         }
 
-        public static DoubleRange Interval = new DoubleRange(-0.5, 0.5);
 
         /// <summary>
         /// Returns a noise value in [-0.5, 0.5] range.

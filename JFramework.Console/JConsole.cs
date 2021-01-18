@@ -13,7 +13,7 @@ namespace JFramework.Console
 	{
 		public static JConsole Instance;
 
-		public void RegisterCommand(Command command) => Commands.Add(command);
+		//public void RegisterCommand(Command command) => Commands.Add(command);
 
 		public delegate void CommandHandler(JConsole console, Command command, params string[] args);
 

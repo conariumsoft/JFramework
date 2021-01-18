@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 
 
-namespace JFramework.Common.ByteUtilities
+namespace JFramework.Common.Data
 {
 	// Serializes datatypes regardless of endianness
 	public static class TypeSerializer

@@ -8,11 +8,13 @@ namespace JFramework.TestGame
         [STAThread]
         static void Main()
         {
-            // Test the crash report!
-            using (var game = new Game1())
-            {
-
-                try
+			// Test the crash report!
+			using (var game = new Game1())
+			{
+#if DEBUG
+				game.Run();
+#else
+				try
                 {
                     game.Run();
                 } catch(Exception e)
@@ -20,13 +22,13 @@ namespace JFramework.TestGame
                     CrashReport report = new CrashReport(game, e);
 
 					report.ProgramName = "TestGame1";
-					report.Title = "Alabama Niggers";
+					report.Title = "Crash Report";
                     report.WriteToFile();
 
 					throw;
 				}
-            }
-                
-        }
+#endif
+			}
+		}
     }
 }

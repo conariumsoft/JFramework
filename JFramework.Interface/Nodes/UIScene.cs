@@ -1,21 +1,28 @@
-﻿using Microsoft.Xna.Framework;
+﻿using JFramework.Common.Scripting;
+using JFramework.Graphics;
+using Microsoft.Xna.Framework;
+using NLua;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace JFramework.Interface.Nodes
 {
-    public class UIScene : IDrawable
+    public class UIScene : RootNodeControls, IRectNode, INode
     {
-        public int DrawOrder { get; }
-        public bool Visible { get; }
+		public UIScene()  {
+			Children = new List<INode>();
+		}
+		public UIScene(LuaTable properties) : this() => this.InitFromLuaPropertyTable(Script.CurrentScript.State, properties);
 
-        public event EventHandler<EventArgs> DrawOrderChanged;
-        public event EventHandler<EventArgs> VisibleChanged;
+		public bool Hidden { get; set; }
+		public bool ThinkingDisabled { get; set; }
+		public string Name { get; set; }
 
-        public void Draw(GameTime gameTime)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public Vector2 AnchorPoint => Vector2.Zero;
+		public Vector2 AbsoluteSize => GraphicsEngine.Instance.WindowSize;
+		public Vector2 AbsolutePosition => Vector2.Zero;
+		public INode Parent { get { throw new NotImplementedException(); } set { throw new NotImplementedException(); } }
+
+
+	}
 }

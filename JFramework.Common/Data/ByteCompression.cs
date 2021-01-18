@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Text;
+using System.Text.Json;
 
-namespace JFramework.Common.ByteUtilities
+namespace JFramework.Common.Data
 {
-	public static class Compressor
+	public static class ByteCompression
 	{
 		public static byte[] Compress(byte[] data, CompressionLevel level = CompressionLevel.Optimal)
 		{

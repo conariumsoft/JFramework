@@ -5,8 +5,6 @@ using System.Text;
 
 namespace JFramework.Common.Extensions
 {
-
-
     public static class LINQExtensions
     {
         // LINQ Extensions, borrowed from Jonathan Skeet

@@ -11,6 +11,7 @@ namespace JFramework.Graphics
 	public class GraphicsEngine : IGraphicsLayer
 	{
 
+		public SpriteFont DefaultFont { get; set; }
 		public static GraphicsEngine Instance { get; private set; }
 
 		public Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
@@ -41,7 +42,7 @@ namespace JFramework.Graphics
 		}
 
 
-		public Vector2 WindowSize { get; set; }
+		public Vector2 WindowSize => Game.Window.ClientBounds.Size.ToVector2();
 		public SpriteSortMode SpriteSortMode { get; set; }
 		public BlendState BlendState { get; set; }
 		public SamplerState SamplerState { get; set; }
@@ -50,6 +51,7 @@ namespace JFramework.Graphics
 		public Effect Shader { get; set; }
 		public Matrix Matrix { get; set; }
 
+		public Game Game { get; private set; }
 		public ContentManager ContentManager { get; set; }
 		public SpriteBatch SpriteBatch { get; set; }
 		public GraphicsDevice GraphicsDevice { get; set; }
@@ -61,8 +63,9 @@ namespace JFramework.Graphics
 
 		public float LoadingDelay { get; set; }
 
-		public GraphicsEngine()
+		public GraphicsEngine(Game game)
 		{
+			Game = game;
 			Instance = this;
 			LoadingDelay = 0.03f;
 		}
@@ -146,8 +149,8 @@ namespace JFramework.Graphics
 			SpriteBatch.Draw(texture, position, quad, color, rotation.Radians, origin, scale, efx, layer);
 		public void Sprite(Texture2D texture, Vector2 position, Rectangle? quad, Color color, Rotation rotation, Vector2 origin, float scale, SpriteEffects efx, float layer) =>
 			SpriteBatch.Draw(texture, position, quad, color, rotation.Radians, origin, scale, efx, layer);
-		public void Text(string text, Vector2 position) => Text(Fonts.Arial10, text, position);
-		public void Text(string text, Vector2 position, Color color) => SpriteBatch.DrawString(Fonts.Arial10, text, position, color);
+		public void Text(string text, Vector2 position) => Text(DefaultFont, text, position);
+		public void Text(string text, Vector2 position, Color color) => SpriteBatch.DrawString(DefaultFont, text, position, color);
 		public void Text(SpriteFont font, string text, Vector2 position) => Text(font, text, position, Color.White, TextXAlignment.Left, TextYAlignment.Top);
 		public void Text(SpriteFont font, string text, Vector2 position, Color color, TextXAlignment textX = TextXAlignment.Left, TextYAlignment textY = TextYAlignment.Top)
 		{

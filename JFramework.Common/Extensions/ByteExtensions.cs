@@ -30,7 +30,7 @@ namespace JFramework.Common.Extensions
 		public static byte AddByte(this byte num, byte add) => (byte)Math.Min(num + add, 255);
 
 
-		public static string ToHexString(this byte[] data, int index = 0) => ToHexadecimalString(data, index, data.Length);
+		public static string ToHexString(this byte[] data, int index = 0) => ToHexString(data, index, data.Length);
 
 		public static string ToHexString(this byte[] data, int index, int length)
 		{

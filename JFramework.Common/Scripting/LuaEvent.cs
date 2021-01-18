@@ -4,6 +4,7 @@ using System.Text;
 
 namespace JFramework.Common.Scripting
 {
+	//
 	public class LuaBindingInstance<TArgs> where TArgs : LuaEventArgs
 	{
 		protected LuaEvent<TArgs> Handler;
