@@ -35,7 +35,7 @@ namespace JFramework.Common.Scripting
 
 	public class SimpleLuaEvent : LuaEvent<LuaEventArgs>
 	{
-
+		public void Invoke() => Invoke(new LuaEventArgs());
 	}
 
 

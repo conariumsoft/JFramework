@@ -15,19 +15,16 @@ namespace JFramework.Interface.Nodes
 
 		[XmlIgnore]
 		public virtual List<INode> Children { get; protected set; }
-
-		
-
 		public virtual void Draw(GraphicsEngine GFX)
 		{
 			foreach (INode child in Children)
-					child.Draw(GFX);
+				child.Draw(GFX);
 		}
 
 		public virtual void Update(GameTime gt)
 		{
 			foreach (INode child in Children)
-					child.Update(gt);
+				child.Update(gt);
 		}
 
 		public INode FindFirstChildWithName(string name) => Children.First(t => t.Name == name);
@@ -54,6 +51,9 @@ namespace JFramework.Interface.Nodes
 		public BaseNode(LuaTable properties) : this() => this.InitFromLuaPropertyTable(Script.CurrentScript.State, properties);
 		public SimpleLuaEvent OnParentChanged = new SimpleLuaEvent();
 
+		// The parent thing
+		// Don't forget to port to it's own class?
+		// so you don't have to duplicate it everywhere?
 		private INode _parent;
 		public INode Parent
 		{

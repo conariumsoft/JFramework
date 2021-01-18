@@ -14,6 +14,8 @@ namespace JFramework.Interface.Nodes
 		}
 		public UIScene(LuaTable properties) : this() => this.InitFromLuaPropertyTable(Script.CurrentScript.State, properties);
 
+		public FocusList FocusList { get; set; }
+
 		public bool Hidden { get; set; }
 		public bool ThinkingDisabled { get; set; }
 		public string Name { get; set; }

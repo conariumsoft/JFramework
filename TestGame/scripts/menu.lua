@@ -35,15 +35,9 @@ local textnode = TextNode({
 	Text = "Testing 123",
 })
 
-local clickListener = InputListenerNode {
 
-}
-
-scene.FocusList = FocusList({
-
-	BG,
-	border,
-	textnode
-})
+scene.FocusList = FocusList()
+scene.FocusList:Add(BG);
+scene.FocusList:Add(button);
 
 return scene;
